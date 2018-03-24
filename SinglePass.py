@@ -6,8 +6,8 @@
 # @Email   : rlalan@outlook.com
 # @Blog    : http://blog.csdn.net/AlanConstantineLau
 
-from reader import readtxt as rt
-from distance import Edit_distance_array as ed
+# from reader import readtxt as rt
+# from distance import Edit_distance_array as ed
 # from statistic import orderdic as od
 import random
 
@@ -80,9 +80,15 @@ def single_pass(data):
     return category
 
 
+def readtxt(path, encoding):
+    with open(path, 'r', encoding=encoding) as f:
+        lines = f.readlines()
+    return lines
+
+
 def main():
     datapath = r'../BPtest.txt'
-    data = rt(datapath, 'utf8')
+    data = readtxt(datapath, 'utf8')
     data = clean_data(data)
     print single_pass(data)
 
